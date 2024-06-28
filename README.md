@@ -24,10 +24,10 @@
     - Nếu trong 1 context cụ thể mà user đã gặp nhiều lần, độ ưa thích của người dùng đối với các item khác nhau được tính theo tỷ lệ phần trăm.
 
 ### Sử dụng Factorization Machine làm base:
-  - Áp dụng mô hình interaction-aware factorization machine để học được cả quan hệ giữa các trường của 2 feature.
-
-### Xử lý dữ liệu tương tác (interaction-aware):
   - Sử dụng mô hình Factorization Machine để học các tương tác giữa các feature và context.
+### Xử lý dữ liệu tương tác (interaction-aware):
+  - Áp dụng mô hình interaction-aware factorization machine để học được cả quan hệ giữa các trường của 2 feature.
+ 
 
 ## Triển khai/demo:
 
