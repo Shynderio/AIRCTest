@@ -22,7 +22,10 @@ class MongoDBConnection:
             self.client = MongoClient(f'mongodb://{self.username}:{self.password}@{self.host}:{self.port}/{self.db_name}')
         else:
             self.client = MongoClient(f'mongodb://{self.host}:{self.port}/')
-        self.db = self.client[self.db_name]
+        if(self.db_name not in self.client.list_database_names()):
+            print(f'Database {self.db_name} not found. Creating new database.')
+            self.db = self.client[self.db_name]
+            load_csv_to_mongodb(self.db)
         print(f'Connected to MongoDB database: {self.db_name}')
 
     def close(self):
@@ -83,7 +86,7 @@ if __name__ == "__main__":
     mongo_conn.connect()
     db = mongo_conn.db
     # Call the function to load data into MongoDB
-    load_csv_to_mongodb(db)
+    # load_csv_to_mongodb(db)
     # update_items(db)
     
     mongo_conn.close()
