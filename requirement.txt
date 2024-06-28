@@ -1,0 +1,6 @@
+python==3.6.3
+tensorflow==1.14.0
+flask
+pandas
+scikit-learn
+pymongo

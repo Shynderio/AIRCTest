@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
+</head>
+<body>
+    <h1>Recommendation System</h1>
+
+    <form action="{{ url_for('recommend')}}" method="POST">
+        <div class="form-group">
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId" name="userId" required><br><br>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="daytime">Select Daytime:</label>
+                <select id="daytime" name="daytime" required>
+                    {% for value in data.daytime %}
+                        <option value="{{ value }}">{{ value }}</option>
+                    {% endfor %}
+                </select><br><br>
+            </div>
+            <div>
+                <label for="weekday">Select Weekday:</label>
+                <select id="weekday" name="weekday" required>
+                    {% for value in data.weekday %}
+                        <option value="{{ value }}">{{ value }}</option>
+                    {% endfor %}
+                </select><br><br>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <label for="isweekend">Select Weekend:</label>
+                <select id="isweekend" name="isweekend" required>
+                    {% for value in data.isweekend %}
+                        <option value="{{ value }}">{{ value }}</option>
+                    {% endfor %}
+                </select><br><br>
+            </div>
+            <div>
+                <label for="homework">Select Homework:</label>
+                <select id="homework" name="homework" required>
+                    {% for value in data.homework %}
+                        <option value="{{ value }}">{{ value }}</option>
+                    {% endfor %}
+                </select><br><br>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="cost">Select Cost:</label>
+                <select id="cost" name="cost" required>
+                    {% for value in data.cost %}
+                        <option value="{{ value }}">{{ value }}</option>
+                    {% endfor %}
+                </select><br><br>
+            </div>
+            <div>
+                <label for="weather">Select Weather:</label>
+                <select id="weather" name="weather" required>
+                    {% for value in data.weather %}
+                        <option value="{{ value }}">{{ value }}</option>
+                    {% endfor %}
+                </select><br><br>
+            </div>
+        </div>
+
+        <label for="country">Select Country:</label>
+        <select id="country" name="country" required>
+            {% for value in data.country %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="city">Select City:</label>
+        <select id="city" name="city" required>
+            {% for value in data.city %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <input type="submit" value="Get Recommendations">
+    </form>
+
+    <!-- Example JavaScript, if needed -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script> <!-- Example link to a JavaScript file -->
+</body>
+</html>
